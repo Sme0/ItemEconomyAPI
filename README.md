@@ -30,6 +30,24 @@ To use this API with maven, add the JitPack repository and the dependency to you
 </dependencies>
 ```
 
+## Usage
+
+```java
+
+RegisteredServiceProvider<ItemEconomyAPI> provider = Bukkit.getServicesManager().getRegistration(ItemEconomyAPI.class);
+
+if (provider != null) {
+    // Obtain the API instance
+    ItemEconomyAPI itemEconomyAPI = provider.getProvider();
+
+    double buyPrice = itemEconomyAPI.getBuyPrice("netherite_ingot");
+    Bukkit.getLogger().info("Netherite ingot buy price: " + buyPrice);
+} else {
+    Bukkit.getLogger().warning("ItemEconomyAPI not found or not registered!");
+}
+
+```
+
 ## API Methods
 
 The `ItemEconomyAPI` interface provides the following methods to interact with item prices and trade status:
